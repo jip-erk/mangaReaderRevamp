@@ -1,0 +1,63 @@
+import { ScraperResponse } from "../types";
+
+/** All available scrapers */
+export type Provider =
+	| "Mangasee"
+	| "Mangadex"
+	| "RCO"
+	| "nhentai"
+	| "nhentainet"
+	| "Manganelo"
+	| "ComicExtra"
+	| "Mangahere"
+	| "Mangadex5"
+	| "Guya";
+export type ProviderId =
+	| "mangasee"
+	| "mangadex"
+	| "rco"
+	| "nhentai"
+	| "nhentainet"
+	| "manganelo"
+	| "comicextra"
+	| "mangahere"
+	| "mangadex5"
+	| "guya";
+
+export const providerids = ['mangasee', 'mangadex', 'nhentai', 'nhentainet', 'manganelo', 'comicextra', 'mangahere', 'mangadex5', 'guya'] as const;
+export type NewProviderId = typeof providerids[number];
+
+
+
+export interface SearchOptions {
+	resultCount: number;
+}
+
+export interface SearchError {
+	error: string;
+}
+
+/**
+ * A scraper
+ * This can be any of the scrapers
+ */
+export abstract class Scraper {
+	public provider: Provider;
+	public canSearch: boolean;
+	public nsfw: boolean;
+	
+	
+
+	public genres: [];
+ 	public searchDisplay?: string;
+
+	public abstract scrape(
+		slug: string | number,
+		chapterId?: string | number
+	): Promise<ScraperResponse>;
+
+	public abstract search(
+		query: string,
+		options?: Partial<SearchOptions>
+	): Promise<ScraperResponse[] | SearchError>;
+}
