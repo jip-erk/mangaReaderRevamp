@@ -147,17 +147,24 @@ async function addInfo(data: ScraperResponse) {
 		data.data.hasSeasons = chapters.length > 1;
 
 
-		const TrueGenres: String[] = ['Action', 'Harem', 'Romance', 'Sienen', 'Comedy', 'Shounen', 'Isekai', 'Ecchi']
+		const TrueGenres: String[] = [ 'harem', 'romance',  'comedy', 'isekai', 'ecchi']
 		// See if it's hentai or if it's safe
 		for (const genre of data.constant.genres) {
 			
-			if(!TrueGenres.includes(genre)){
-				delete data.constant.genres[genre];
-			}
+			//if(!TrueGenres.includes(genre)){
+			//delete data.constant.genres[genre];
+		//	}
 			if (disallowedGenres.includes(genre.toLowerCase())) {
 				data.constant.nsfw = true;
 			}
 		}
+
+		data.constant.genres.forEach((element,index) => {
+			if(!TrueGenres.includes(element.toLowerCase())) data.constant.genres.splice(index, 1);
+			
+		});
+		
+
 	
 		for (const genre of data.constant.genres) {
 			if (disallowedLanguage.includes(genre.toLowerCase())) {

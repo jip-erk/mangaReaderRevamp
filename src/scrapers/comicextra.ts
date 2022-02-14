@@ -231,7 +231,7 @@ export class comicextraClass extends Scraper {
 			// Find description
 			const descriptionParagraphs = document
 				.querySelector("#film-content")
-				.textContent.split(/\n|<br>/g);
+				//.textContent.split(/\n|<br>/g);
 
 			// Return it.
 			const providerId = getProviderId(this.provider);
