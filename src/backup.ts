@@ -5,7 +5,7 @@ import chalk from "chalk";
 import db from "./db";
 import { List } from "./types";
 
-const homePath = path.join(os.homedir(), ".adolla");
+const homePath =  "./data";
 const backupsPath = path.join(homePath, "backups", "");
 
 class Backup {
