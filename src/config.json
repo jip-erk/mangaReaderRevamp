@@ -1,18 +1,17 @@
 {
-	"http": {
-		"port": 8080
-	},
-	"cache": {
-		"duration": 1800000
-	},
-	"disallowedGenres": [
-		"smut",
-		"nsfw",
-		"hentai"
-		
-	],
-	"disallowedLanguage": [
-		"japanese",
-		"chinese"
-	]
+    "http": {
+        "port": 1377
+    },
+    "cache": {
+        "duration": 1800000
+    },
+    "disallowedGenres": [
+        "smut",
+        "nsfw",
+        "hentai"
+    ],
+    "disallowedLanguage": [
+        "japanese",
+        "chinese"
+    ]
 }

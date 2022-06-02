@@ -5,7 +5,7 @@ import chalk from "chalk";
 import db from "./db";
 import { List } from "./types";
 
-const homePath =  "../data";
+const homePath =  "/data";
 const backupsPath = path.join(homePath, "backups", "");
 
 class Backup {

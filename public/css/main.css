@@ -7,7 +7,7 @@
 
 :root {
     --body-harsh: white;
-    --body: #0000005b;
+    --body: #010409;
     --body-offset: #2c2c2c;
     --text: #333;
     --text-secondary: #7d7d7d;
@@ -26,8 +26,8 @@
 @media (prefers-color-scheme: dark) {
      :root {
         --body-harsh: #0d1117;
-        --body: #191a1c;
-        --body-offset: #2c2c2c;
+        --body: #010409;
+        --body-offset: #0d1117;
         --text: #c9c9c9;
         --text-secondary: #a1a1a1;
         --border: #4c33b97a;
@@ -66,6 +66,7 @@ body {
     min-height: calc(100vh - env(safe-area-inset-top));
     scrollbar-color: var(--border) var(--body-harsh);
     scrollbar-width: thin;
+    overflow-x: hidden;
 }
 
 body {
@@ -567,6 +568,8 @@ textarea {
 
 .manga-card .title-div .to-manga-page {
     margin-left: 5px;
+    position: relative;
+    top: 6px;
 }
 
 .manga-card .to-manga,
@@ -752,6 +755,7 @@ textarea {
     -moz-hyphens: none;
     hyphens: none;
     white-space: nowrap;
+    box-shadow: var(--border) 0px 3px;
 }
 
 .new {
@@ -1712,7 +1716,7 @@ select {
     border-bottom: env(safe-area-inset-bottom) solid transparent;
     justify-content: space-around;
     align-items: center;
-    border-top: 2px solid var(--border);
+    border-top: 1px solid var(--border);
     display: none;
     box-sizing: border-box;
     z-index: 130;
@@ -2188,6 +2192,8 @@ div.selection-actions .selection-actions-inner {
         align-items: center;
         max-height: 200px;
         height: 200px;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
     }
     [data-list-type="grid"] .manga-card {
         grid-template-columns: 1fr;
@@ -2206,6 +2212,10 @@ div.selection-actions .selection-actions-inner {
     }
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 
 /* Camera mode */
 
@@ -2217,27 +2227,8 @@ div.selection-actions .selection-actions-inner {
 /* width */
 
 ::-webkit-scrollbar {
-    width: 10px;
-}
-
-
-/* Track */
-
- ::-webkit-scrollbar-track {
-    background: var(--body-offset);
-}
-
-
-/* Handle */
-
- ::-webkit-scrollbar-thumb {
-    background: #a1a1a1;
-    border-radius: 5px;
-}
-
-
-/* Handle on hover */
-
- ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    width: 0px;
+    background: transparent;
+    -webkit-appearance: none;
+    /* make scrollbar transparent */
 }
