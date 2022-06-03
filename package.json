@@ -4,15 +4,14 @@
     "description": "Adolla is a manga reader for every device with a web browser",
     "scripts": {
         "start": "ts-node src/index.ts",
+        "postinstall": "tsc",
         "start-es": "npm run build && node ./dist/index.js",
         "dev": "npm start",
         "clear-cache": "npm run build && node ./dist/clear-cache.js",
         "format-data": "npm run build && node ./dist/format-data.js",
-        "build": "etsc",
         "lint": "eslint src/",
         "lint:fix": "prettier --write . && eslint src/ --fix",
-        "build-binaries": "npm run build && pkg dist/index.js",
-        "heroku-postbuild": "ng build --prod"
+        "build-binaries": "npm run build && pkg dist/index.js"
     },
     "keywords": [],
     "author": "",
