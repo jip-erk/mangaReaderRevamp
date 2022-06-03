@@ -5,14 +5,11 @@ import chalk from "chalk";
 import db from "./db";
 import { List } from "./types";
 
-const homePath =  "/data";
+const homePath =  "./data/";
 const backupsPath = path.join(homePath, "backups", "");
 
 class Backup {
-	/**
-	 * Start checking for backups.
-	 * Running `.start()` will make it so a backup is made every 24 hours.
-	 */
+
 	public start() {
 		this.checkTime();
 	}
