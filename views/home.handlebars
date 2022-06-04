@@ -1,16 +1,20 @@
 <div class="content-inner">
 
 
+
 	<h1 class="title">Manga</h1>
 	
 	{{#if reading}}
 	<section class="section continue-reading" data-list-id="continue-reading" data-list-type="list">
 		<h2 class="sub-title spread do-spread"><span>Continue reading</span> {{> list-type }}</h2>
 		<div class="manga-grid show-all-wrapper do-show-all">
-			
-			{{#each reading}}
-			{{> manga-card manga=this toChapter=true}}
+		
+	
+	
+			{{#each reading}}	
+				{{> manga-card manga=this toChapter=true}}
 			{{/each}}
+
 
 			<button class="show-all">Show <span class="more-count"></span> more</button>
 

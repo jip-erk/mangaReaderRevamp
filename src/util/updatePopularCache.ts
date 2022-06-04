@@ -54,11 +54,12 @@ class Updater {
 
 		/**
 		 * UPDATE "READING" CACHE
-		 */
+		 
 		console.info(
 			chalk.yellowBright("[NOTIFS]") +
 				` Looking for new chapters at ${new Date().toLocaleString()}`
 		);
+		*/
 		const reading = await getReading();
 
 		await Promise.all(
@@ -115,12 +116,14 @@ class Updater {
 										nextChapter.season
 									)}-${clean(nextChapter.chapter)}`;
 									const hasNotified = db.get(dbString);
-
+									
 									if (hasNotified) {
+											/*
 										console.info(
 											chalk.red("[NOTIFS]") +
 												` New chapter was found for ${data.constant.title} (${nextChapter.season}, ${nextChapter.chapter}), user has already been notified`
 										);
+										*/
 									} else {
 										// Generate message
 										const host = db.get("other.host");
@@ -137,20 +140,22 @@ class Updater {
 										let doSet = false;
 										const bot = Bot.get();
 										if (bot) {
-											// Send notification, and do some stuff to make sure it doesn't send it every 30 minutes
+											/* Send notification, and do some stuff to make sure it doesn't send it every 30 minutes
 											console.info(
 												chalk.green("[NOTIFS]") +
 													` New chapter found for ${data.constant.title}, notifying user with Telegram bot`
 											);
-
+											*/
 											Bot.send(msgFull);
 											doSet = true;
 										} else {
 											// Send notification, and do some stuff to make sure it doesn't send it every 30 minutes
+											/*
 											console.info(
 												chalk.red("[NOTIFS]") +
 													` New chapter found for ${data.constant.title} but Telegram Bot is not configured`
 											);
+											*/
 										}
 
 										// Discord webhook
@@ -158,10 +163,12 @@ class Updater {
 											process.env.DISCORDWEBHOOK ??
 											secretConfig.discord_webhook
 										) {
+											/*
 											console.info(
 												chalk.green("[NOTIFS]") +
 													` New chapter found for ${data.constant.title}, notifying user over Discord Webhook`
 											);
+											*/
 											const webhookNotif = await fetch(
 												process.env.DISCORDWEBHOOK ??
 													secretConfig.discord_webhook,
@@ -190,17 +197,20 @@ class Updater {
 														],
 													}),
 												}
-											);
+											);/*
 											console.info(
 												chalk.green("[NOTIFS]") +
 													` New chapter found for ${data.constant.title}, attempted to notify user over Discord Webhook. HTTP status ${webhookNotif.status}`
 											);
+											*/
 											doSet = true;
 										} else {
+											/*
 											console.info(
 												chalk.red("[NOTIFS]") +
 													` New chapter found for ${data.constant.title} but Discord webhook is not configured`
 											);
+											*/
 										}
 
 										if (doSet) db.set(dbString, true);
@@ -212,21 +222,19 @@ class Updater {
 				})
 		);
 
-		console.info(
-			chalk.green("[NOTIFS]") + " Checked for new chapters, now done"
-		);
+	
 
 		/**
 		 * Remove old items from cache
 		 */
 
 		// Get data
-
+/*
 		console.info(
 			chalk.yellowBright("[CLEANUP]") +
 				" Checking each cache entry for old data"
 		);
-
+*/
 		// Check each entry and
 		for (const provider of Object.keys(cache)) {
 			for (const slug of Object.keys(cache[provider])) {

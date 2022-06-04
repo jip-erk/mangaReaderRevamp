@@ -120,6 +120,10 @@ body[data-is-dev="true"]::after {
     display: none;
 }
 
+.hide-manga {
+    display: none !important;
+}
+
 
 /* Layout */
 
@@ -309,11 +313,12 @@ details .manga-grid {
 /* Util */
 
 .title {
-    margin: 0;
+    margin: 0 10px 0 10px;
     color: var(--text);
 }
 
 .sub-title {
+    padding: 0 10px 0 10px;
     color: var(--text);
     margin-top: 0;
 }
@@ -529,12 +534,37 @@ textarea {
 }
 
 .show-all-wrapper:not(.do-show-all):not(.force-show) .do-hide {
-    display: none;
+    display: inherit;
 }
 
 .show-all-wrapper.do-show-all .show-all,
 .show-all-wrapper.force-show .show-all {
     display: none;
+}
+
+
+/* loadingbar */
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: rgba(119, 0, 255, 0.253);
+    position: fixed;
+    z-index: 2000;
+    top: 5%;
+    right: 100%;
+    width: 100%;
+    height: 5px;
 }
 
 

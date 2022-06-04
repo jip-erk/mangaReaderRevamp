@@ -7,6 +7,8 @@ import { Scraper, SearchOptions } from "./types";
 import { getProviderId, isProviderId } from "../routers/manga-page";
 import updateManga from "../util/updateManga";
 
+
+
 export class mangahereClass extends Scraper {
 	constructor() {
 		super();
@@ -111,11 +113,35 @@ export class mangahereClass extends Scraper {
 		const title = document.querySelector(".detail-info-right-title-font")
 			.textContent;
 
+		//make posterUrl same as getPosterUrl
+	
+		///console.log(await getPosterUrl());
+		
+
+		//let posterUrl = document.querySelector(".detail-info-cover-img").src;
+		let posterUrl = 'https://static.wikia.nocookie.net/breaking-bad-tv/images/8/8b/MikeS5.jpg';
 		// Get poster URL
-		let posterUrl = document.querySelector(".detail-info-cover-img").src;
-		if (posterUrl.startsWith("/"))
+		 /*document.querySelector(".detail-info-cover-img").src;*/
+		/*if (posterUrl.startsWith("/"))
 			posterUrl = "https://www.mangahere.cc" + posterUrl;
-		posterUrl = `/proxy-image?url=${posterUrl}`;
+		posterUrl = `/proxy-image?url=${posterUrl}`;*/
+
+
+		//get manga poster / cover from kitsu api using title 
+		//const kitsuUrl = `https://kitsu.io/api/edge/anime?filter[text]=${(rawTitle).toLowerCase()}`;
+		//const kitsuReq = await fetch(kitsuUrl);
+		//const kitsuData = await kitsuReq.json();
+
+
+		
+
+	
+		
+
+		
+
+	
+
 
 		// Get genres from tags
 		const genreWrapper = document.querySelector(".detail-info-right-tag-list");

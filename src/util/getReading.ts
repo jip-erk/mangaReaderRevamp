@@ -64,6 +64,6 @@ export default async function getReading(
 				(b.success && b.progress ? b.progress?.at : 0) -
 				(a.success && a.progress ? a.progress?.at : 0)
 		);
-
+	
 	return reading;
 }

@@ -93,11 +93,12 @@ export async function getAnnouncements(): Promise<Announcement[]> {
 							}),
 						}
 					);
-
+					/*
 					console.info(
 						chalk.green("[NOTIFS]") +
 							` New announcement: ${announcement.message}, attempted to notify user over Discord Webhook. HTTP status ${discordReq.status}`
 					);
+					*/
 				}
 
 				notifiedAnnouncements.push(announcement.id);

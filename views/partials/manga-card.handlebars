@@ -1,5 +1,5 @@
 {{#if manga.constant}}
-<div class="manga-card">
+<div class="manga-card {{#if progress.new}}hide-manga{{/if}}">
 	<a class="to-manga" data-path="{{genLink2 manga.provider manga.constant.slug}}"
 		 href="
 	{{#if toChapter}}

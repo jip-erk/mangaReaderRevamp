@@ -37,6 +37,7 @@ export class nhentaiClass extends Scraper {
 		const searchData = await getDataFromURL(pageUrl);
 
 		// Find IDs
+		if(searchData?.result) {
 		const ids = searchData.result
 			.map((result) => result.id)
 			.slice(0, resultCount);
@@ -47,6 +48,10 @@ export class nhentaiClass extends Scraper {
 		);
 
 		return searchResultData;
+		}else{
+			//console.log(pageUrl);
+			return[];
+		}
 	}
 
 	/**
@@ -99,6 +104,7 @@ export class nhentaiClass extends Scraper {
 				`https://nhentai.net/api/gallery/${slug}`
 			);
 
+			
 			// Find language, default to unknown
 			const language =
 				data.tags.find((tag) => tag.type === "language")?.name || "unknown";
