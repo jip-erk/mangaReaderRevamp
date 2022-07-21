@@ -1,6 +1,8 @@
 {{#if manga.constant}}
-<div class="manga-card {{#if progress.new}}hide-manga{{/if}}">
-	<a class="to-manga" data-path="{{genLink2 manga.provider manga.constant.slug}}"
+
+<div class="manga-card {{#if progress.new}}hide-manga{{/if}}" data-path="{{genLink2 manga.provider manga.constant.slug}}">
+<div class="remove-div remover" data-path="{{genLink2 manga.provider manga.constant.slug}}"></div>
+	<a class="to-manga"
 		 href="
 	{{#if toChapter}}
 	{{genLink2 manga.provider manga.constant.slug manga.progress.chapterId }}

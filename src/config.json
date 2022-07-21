@@ -1,6 +1,6 @@
 {
     "http": {
-        "port": 1377
+        "port": 8080
     },
     "cache": {
         "duration": 1800000
